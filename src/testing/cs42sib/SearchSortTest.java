@@ -3,8 +3,11 @@
 package testing.cs42sib;
 
 /** required imports */
+import collections.LinkedList;
 import io.Simulator;
 import tools.Numbers;
+import tools.Search;
+import tools.Sort;
 import tools.Text;
 
 
@@ -95,6 +98,43 @@ public class SearchSortTest
         sort(array);                                // simple sort
         System.out.println("Sorted array " + new Text().toString(array) + 
                            " searching for " + randomItem + " is " + found);
+        
+        Simulator.comment("Use classes with Search/Sort generic methods...");
+        Simulator.comment("Create new object to use");
+        
+        Text text = new Text();
+        Search search = new Search();
+        Sort sort = new Sort();
+        
+        Simulator.comment("Create random LinkedList data...");
+        Simulator.comment("Including all edge cases to test for");
+        
+        LinkedList<String> unsortedWords = text.randomList(MAX);
+        LinkedList<String> sortedWords = new LinkedList<>();
+        
+        String randomWord = text.randomWord();
+        String inListWord = unsortedWords.get(numbers.random(MIN + 1, MAX - 2));
+        String firstWord = unsortedWords.front();
+        String lastWord = unsortedWords.back();
+        String notWord = "Wachs";
+        
+        LinkedList<String> testCases = new LinkedList<>();
+        testCases.add(randomWord);
+        testCases.add(inListWord);
+        testCases.add(firstWord);
+        testCases.add(lastWord);
+        testCases.add(notWord);
+        
+        Simulator.comment("Execute all the searches on all test data...");
+        
+        for (int i = 0; i < testCases.size(); i++) {
+            String word = testCases.get(i);
+            index = search.linear(word, unsortedWords);
+            System.out.println("Linear: \t" + unsortedWords.toString() +
+                    " -> \t" + word + " -> \t" + index);
+        }
+        
+        
         
         Simulator.header("Searching and Sorting Test completed!");
     }   
