@@ -4,6 +4,7 @@ package testing.cs40s.advancedclasses;
 
 /** required imports */
 import io.System;
+import java.io.Serializable;
 
 
 /**
@@ -13,7 +14,7 @@ import io.System;
  * @param <T> the generic type for the box contents
  * @since Nov. 6, 2019, 11:38:39 a.m.
  */
-public class Box <T>
+public class Box <T> implements Comparable, Serializable
 {
 
     private T present;
@@ -41,6 +42,18 @@ public class Box <T>
      */
     public void peek() {
         System.out.println(present.toString());
+    }
+
+    @Override
+    public int compareTo(Object object) {
+        if (object instanceof Box) {
+            Box that = (Box)object;
+            
+            this.present.c
+            
+        } else {
+            return 0;
+        }
     }
 
 }

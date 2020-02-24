@@ -3,6 +3,7 @@
 package testing.cs42sib;
 
 /** required imports */
+import collections.Stack;
 import io.Simulator;
 import io.System;
 
@@ -22,7 +23,14 @@ public class StacksQueuesTest
     public StacksQueuesTest() {
         Simulator.header("Stacks and Queues Test started...");
         
+        Simulator.comment("Test the stack...");
+        Simulator.comment("Create the stack...");
         
+        Stack stack = new Stack();
+        
+        System.out.println(stack.toString());
+        System.out.println("Size = " + stack.size());
+        System.out.println("Empty = " + stack.isEmpty());
         
         Simulator.header("Stacks and Queues Test completed!");
     }   
