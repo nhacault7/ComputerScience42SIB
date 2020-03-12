@@ -28,8 +28,8 @@ public class ComputerScience42SIB
 //        Test.run();
 //        new PermanentStorageTest();
 //        new SearchSortTest();
-        new StacksQueuesTest();
-//        new TreesTest();        
+//        new StacksQueuesTest();
+        new TreesTest();        
         Simulator.header("Computer Science 42SIB complete!");
     }
     

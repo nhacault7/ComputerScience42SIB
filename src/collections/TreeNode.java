@@ -57,4 +57,35 @@ public class TreeNode <T extends Comparable<T>> implements Serializable {
         return new TreeNode<>(this.data);
     }
     
+    public boolean insert(T data) {
+        // error checl
+        if (data == null) return false;
+    
+        // decide which sub-tree the data goes to
+        if(data.compareTo(this.data) < 0) {
+            // means we insert into the left
+            if(this.left == null) {
+                // empty spot, we can use this
+                this.left = new TreeNode<>(data);
+            }
+            else {
+                // insert recursively
+                this.left.insert(data);
+            }
+        }
+        else if (data.compareTo(this.data) >= 0) {
+            // means we insert into the right
+            if(this.right == null) {
+                // empty spot, we can use this
+                this.right = new TreeNode<>(data);
+            }
+            else {
+                // insert recursively
+                this.right.insert(data);
+            }
+        }
+        // if it completes the above tasks
+        return true;
+    }
+    
 }
