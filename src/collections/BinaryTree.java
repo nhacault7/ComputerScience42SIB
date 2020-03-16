@@ -66,7 +66,15 @@ public class BinaryTree <T extends Comparable<T>> implements Serializable
      */
     @Override
     public boolean equals(Object object) {
-        return super.equals(object);
+        if (object == null) return false;
+        try {
+            BinaryTree that = (BinaryTree)object;
+            LinkedList inOrder1 = this.inOrder();
+            LinkedList inOrder2 = that.inOrder();
+            return inOrder1.equals(inOrder2);
+        } catch (ClassCastException error) {
+            return false;
+        }
     }
        
     /**
@@ -76,7 +84,11 @@ public class BinaryTree <T extends Comparable<T>> implements Serializable
      */
     @Override
     public BinaryTree clone() {
-        return this;
+        BinaryTree<T> tree = new BinaryTree<>();
+        for (int i = 0; i < order.size(); i++) {
+            tree.insert((T)order.get(i));
+        }
+        return tree;
     }
     
     /**
